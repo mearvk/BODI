@@ -1,5 +1,6 @@
 package bloq.system.bodi;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,5 +79,60 @@ public class Bndi
         return contexts.get(context);
         //return contexts.get(context) == null ? Bndi.setcontext(context) : Bndi.contexts.get(context);
     }  
+    
+    /**
+     * 
+     * @param basecontext
+     * @return 
+     */
+    public static ArrayList<String> listcontexts(String basecontext)
+    {
+        Map<String, Bndicontext> bodicontexts = Bndi.contexts;
+        
+        ArrayList<String> matchingcontexts = new ArrayList();
+        
+        Integer count = 0;
+        
+        for(Map.Entry<String, Bndicontext> bodicontext : bodicontexts.entrySet())
+        {
+            String contextname = bodicontext.getKey();
+            
+            Bndicontext contextproper = bodicontext.getValue();                                                
+            
+            if(contextname.startsWith(basecontext))
+            {
+                count = count + 1;
+                
+                matchingcontexts.add(count+". "+contextname);
+            }
+        }
+        
+        matchingcontexts.add("");
+        
+        return matchingcontexts;
+    }
+    
+    /**
+     * 
+     * @param context
+     * @return
+     * @throws Exception 
+     */
+    public synchronized static Boolean removecontext(String context) throws Exception
+    {
+        if(contexts.get(context)==null) return true;
+        
+        return Bndi.contexts.remove(context)!=null;
+    }    
+
+    /**
+     * 
+     * @param context
+     * @return 
+     */
+    public synchronized static Boolean hascontextat(String context) //new at a^t test me
+    {
+        return contexts.get(context) == null ? false : true;
+    }    
 }
 

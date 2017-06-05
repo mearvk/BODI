@@ -6,9 +6,11 @@
 package bloq.system.bodi;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -143,5 +145,119 @@ public class Bndicontext
         }
         
         return null;
-    }            
+    } 
+
+    /**
+     * 
+     * @return 
+     */
+    public Map<Object,Object> pullall()
+    {
+        HashMap<Object, Object> allvals = new HashMap<Object, Object>();
+    
+        allvals.putAll(namemap);
+        
+        allvals.putAll(objectmap);
+        
+        allvals.putAll(hashmap);
+        
+        return allvals;
+    }
+    
+    /**
+     * 
+     * @param name
+     * @return 
+     */
+    public Class getclass(String name)
+    {
+        return this.pull(name).getClass();
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public Set<Object> keys()
+    {
+        Map<Object, Object> allvals = this.pullall();
+        
+        return allvals.keySet();
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Collection<Object> values()
+    {
+        Map<Object, Object> allvals = this.pullall();
+        
+        return allvals.values();        
+    }   
+    
+    /**
+     * 
+     * @param basecontext
+     * @param depth
+     * @return 
+     */
+    public Collection<Object> lists(String basecontext, Integer depth)
+    {
+        return null; 
+    }    
+    
+    /**
+     * 
+     * @return 
+     */
+    public Collection<Object> pullallstringkeyedvalues()
+    {
+        return namemap.values();
+    }    
+    
+    /**
+     * 
+     * @return 
+     */
+    public Set<String> pullallstringkeys()
+    {
+        return namemap.keySet();
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Collection<Object> pullallobjectkeyedvalues()
+    {
+        return objectmap.values();
+    }    
+    
+    /**
+     * 
+     * @return 
+     */
+    public Set<Object> pullallobjectkeys()
+    {
+        return objectmap.keySet();
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public Collection<Object> pullallhashcodekeyedvalues()
+    {
+        return hashmap.values();
+    }    
+    
+    /**
+     * 
+     * @return 
+     */
+    public Set<Integer> pullAllKeys()
+    {
+        return hashmap.keySet();
+    }     
 }
