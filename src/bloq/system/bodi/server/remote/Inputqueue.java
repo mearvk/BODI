@@ -10,7 +10,7 @@ import java.util.Queue;
  */
 public class Inputqueue 
 {
-    public Queue<Networkcontext> queue = new LinkedList();
+    public Queue<Networkcontext> queue = new LinkedList<>();
     
     public void add(Networkcontext connection)
     {
