@@ -8,3 +8,4 @@
 6. Make a note of the PULL result; it contains a message of SUCCESS or NOT --> //pull //sessionid=999966131 //result=success //message=key/context pair found. //object=bloq.system.bodi.server.remote.Serializedcarrier@5b480cf9 //ttl=4165304 //value=345
 
 
+Edward Snowden's password ZKr%MraWPmFj7jH& ;-) winkarooski
